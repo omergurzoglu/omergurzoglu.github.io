@@ -4,23 +4,25 @@
 
 <div id="mapex_title">Prototypes</div>
 
-<br>
-
 
 <div id="mapex_body">
+  <div class="mapex_text">
+    Seeker Agents
+  </div>
+  <div id="exalted_tldr">
+    <img src="https://img.shields.io/badge/Build%20Date-26.12.22-informational" alt="date" />
+  </div>
+  <br>
     <div class="mapex_text">
       I made a hide and seek type of prototype because I wanted to play around with NavMeshAgents.
       The goal is to collect all three stars in 60 seconds without getting spotted by agents. You can distract the agents by throwing a ball
       on the walls or you can kill them directly by hitting them with the ball. I used the state pattern 
       for the agent script , so they would be open for expansion if I were to add more behaviors to them.
-      Also I used a oscillating capsule to move on sloped surfaces. Could have used a normal character controller 
+      I also used an oscillating capsule approach to move on sloped surfaces. Could have used a normal character controller 
       but I wanted to give the player a floating magnetic field effect.
      
-      
-
   </div>
   <br>
-  
   
   <div id="tech_youtube">
     <iframe width="800" height="450" src="https://www.youtube.com/embed/yEpc3opH6UU" title="seeker agents" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
@@ -29,12 +31,27 @@
   <br>
   <hr>
   <div class="mapex_text">
+    Foot IK & Movement SM
+  </div>
+  <div id="exalted_tldr">
+    <img src="https://img.shields.io/badge/Build%20Date-10.02.23-informational" alt="date" />
+  
+  </div>
+  <br>
+
+  <div class="mapex_text">
     In this prototype , I focused on animation inverse kinematics , 
     movement and animation state machine, animation blend tree , third person camera follow system via cinemachine. I used unity's
     new input system. The state machine is open for expansion because most of the methods can be overridden in new states.
     The new input system comes handy in this situation because you can override OnMovePerformed() method in new states.
 
 </div>
+<br>
+<div id="tech_youtube">
+  <iframe width="800" height="450" src="https://www.youtube.com/embed/yEpc3opH6UU" title="seeker agents" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
+  encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</div>
+<br>
 
     
 </div>
