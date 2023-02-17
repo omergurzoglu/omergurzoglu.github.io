@@ -23,13 +23,14 @@
     In this prototype , I focused on animation inverse kinematics , 
     movement and animation state machine, animation blend tree , third person camera follow system via cinemachine. I used unity's
     new input system. The state machine is open for expansion because most of the methods can be overridden in new states.
-    The new input system comes handy in this situation because you can override OnMovePerformed() method in new states.
+    The new input system comes handy in this situation because you can override OnMovePerformed() method in new states. But there are some problems on the approach, 
+    we are overriding the foot position on the animation, this results in some odd instant elevation while climbing stairs.
+    Maybe with unity's animation rigging package , we can move the body according to the feet position. I'll have to check it at some point. 
 
 </div>
 <br>
 <div id="tech_youtube">
-  <iframe width="800" height="450" src="https://www.youtube.com/embed/yEpc3opH6UU" title="seeker agents" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-  encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  <iframe width="1000" height="550" src="https://www.youtube.com/embed/jAtK1jE1Cw4" title="playground" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </div>
 <br>
 <hr>
