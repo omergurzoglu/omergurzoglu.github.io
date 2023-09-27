@@ -1,81 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- Metadata -->
-        <meta charset="utf-8">
-        
-        <!-- Mobile Specific Metas -->
-        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
-        <meta name="keywords" content="programmer, coding,  games developer, software developer, english" />
-        <meta name="description" content="Games and software developer interested in c++ engine development." />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ömer Gürzoğlu</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> <!-- Roboto Font -->
+<style>
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #084b4b; /* Dark Teal */
+    color: white; /* Text color white */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+  }
+  .container {
+    background-color: #083138; /* Slightly darker teal */
+    padding: 20px;
+    border-radius: 8px;
+    width: 80%; /* Set a max width */
+    max-width: 1000px; /* Or whatever max width you prefer */
+  }
+  .header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+    width: 100%;
+  }
+  .profile-image {
+    max-width: 200px;
+    border-radius: 8px; /* Changed to rectangle */
+    margin-right: 20px; /* Space between image and text */
+  }
+  .video-container {
+    margin-top: 20px;
+    display: grid; /* Enable grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two columns */
+    gap: 10px; /* Spacing between videos */
+    background-color: #031e1e; /* Background color for video container */
+    padding: 10px; /* Some padding around the videos */
+    border-radius: 8px; /* Optional: rounded corners */
+  }
+  iframe {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  .links {
+    margin-top: 20px;
+    text-align: left; /* Centered links */
+  }
+  .links img {
+    width : 32px;
+    margin: 0 5px;
+  }
+  p {
+    font-size: 1.5em; /* Made "Game Developer" text larger */
+  }
+</style>
+</head>
+<body>
 
-        <title>Ömer Gürzoğlu</title>
-
-
-        <!-- External file links for this html page  -->
-        
-        <!-- CSS -->
-        <link rel="stylesheet" type="text/css" href="styles/skeleton.css">
-        <link rel="stylesheet" type="text/css" href="styles/landing.css">
-        <link rel="stylesheet" type="text/css" href="styles/career.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-        <!-- Project related css files --> 
-        <link rel="stylesheet" type="text/css" href="./styles/project_styles/mirage.css"/>
-        <link rel="stylesheet" type="text/css" href="./styles/project_styles/exalted.css"/>
-        <link rel="stylesheet" type="text/css" href="./styles/project_styles/15_puzzle.css"/>
-        <link rel="stylesheet" type="text/css" href="./styles/project_styles/game_tech.css"/>
-        <link rel="stylesheet" type="text/css" href="./styles/project_styles/vpa.css"/>
-
-        <!-- Icon -->
-        <link rel="icon" type="image/png" href="./data/images/icon_trans.png">
-
-        <!-- Scripts -->
-        <script src="scripts/quick_links.js"></script>
-
-        <!-- Add google analytics data -->
-
-    </head>
-
-    <!-- Add a custom container class implementation here.... -->
-    <body id="top">  
-        <div class="container" style="margin-top: 1%" align="center">   
-            <div id="title">Ömer Gürzoğlu</div>            
-            <img class="landing_logo" src="./Data/images/portrait.png" alt="Portrait">
-            <div id="quick_links">
-                
-                <a href="mailto:omergurzoglu@gmail.com" target="_blank"><i class="fa fa-envelope"></i></a>
-                <a href="https://github.com/omergurzoglu" target="_blank"><i class="fa fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/omergurzoglu/" target="_blank"><i class="fa fa-linkedin"></i></a>
-                <a href="https://www.youtube.com/@omergurzoglu6987" target="_blank"><i class="fa fa-youtube"></i></a>
-                
-            </div>
-            <hr>
-            <div id="about_me">Hi there , I develop games in unity for almost a year now. You can view some of
-                 my projects below. You can also click on the github icon to view the code.</div>
-            <hr>
-
-            <section class="buttons">
-                <div class="button_container">
-                    <div id="projects-Button" class="btn btn-5 kd-button" onClick="document.getElementById('project_data_area').style.opacity = 0;">Projects</div> 
-                    <div id="career-Button" class="btn btn-5 kd-button" onClick="document.getElementById('project_data_area').style.opacity = 0;">Career</div> 
-                    <div id="skills-Button" class="btn btn-5 kd-button" onClick="document.getElementById('project_data_area').style.opacity = 0;">Skills</div> 
-                    <div id="research-Button" class="btn btn-5 kd-button" onClick="document.getElementById('project_data_area').style.opacity = 0;">Research</div> 
-                </div>
-            </section>
-        </div>
-
-        <!-- Scripts used in top body -->
-        <script src="scripts/text_animation.js"></script>
-    </body>
-
-    <div id="bottom">
-        <!-- Data_Labels -->
-        <div id="data_selection_area" class="container kd-selection-content" style="opacity: 0;"></div>
-        <div id="project_data_area" class="container kd-selection-content" style="opacity: 0;"></div>
-        <script src="scripts/button_nav_selection.js"></script>
-        <script src="scripts/button_nav_proj.js"></script>
-        <script src="scripts/button_nav_career.js"></script>
-
+<div class="container">
+  <div class="header">
+    <img src="your-photo.jpg" alt="Your Name" class="profile-image">
+    <div>
+      <h1>Ömer Gürzoğlu</h1>
+      <p>Game Developer</p>
+      omergurzoglu@gmail.com
+      <div class="links">
+        <a href="https://github.com/omergurzoglu" target="_blank"><img src="github-icon.png" alt="GitHub"></a>
+        <a href="https://www.linkedin.com/in/omergurzoglu/" target="_blank"><img src="linkedin-icon.png" alt="LinkedIn"></a>
+        <a href="https://www.youtube.com/@omergurzoglu" target="_blank"><img src="youtube-icon.png" alt="YouTube"></a>
     </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="video-container">
+    <!-- Videos -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dkTSwJpJQks" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/ALzSsBBsufs" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/jAtK1jE1Cw4" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/weStulWxOkg" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/XVX2tl3s_iA" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/yEpc3opH6UU" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/-ge8xaWduKg" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/fToVGXkp_l4" frameborder="0" allowfullscreen></iframe>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/UeHwtWJpzWw" frameborder="0" allowfullscreen></iframe>
+    <!-- ... (other iframe elements) ... -->
+  </div>
+</div>
+
+</body>
 </html>
