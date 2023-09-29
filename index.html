@@ -61,6 +61,22 @@
   p {
     font-size: 1.5em; /* Made "Game Developer" text larger */
   }
+  @media (max-width: 768px) 
+  {
+    .header {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .profile-image {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+    .video-container {
+      grid-template-columns: 1fr;
+    }
+  }
+  
 </style>
 </head>
 <body>
@@ -83,6 +99,7 @@
 
   <div class="video-container">
     <!-- Videos -->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/dkTSwJpJQks" frameborder="0" allowfullscreen></iframe>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/dkTSwJpJQks" frameborder="0" allowfullscreen></iframe>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/ALzSsBBsufs" frameborder="0" allowfullscreen></iframe>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/jAtK1jE1Cw4" frameborder="0" allowfullscreen></iframe>
