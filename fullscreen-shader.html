@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fullscreen Multicolor Fog Shader</title>
+    <title>EnvironmentShaders</title>
+    <link rel="icon" href="your-photo.jpg" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #1a1a1a; /* Dark background */
-            color: white;
+            color: rgb(214, 214, 214);
             margin: 0;
             display: flex;
             justify-content: center;
@@ -25,17 +26,205 @@
             margin: 20px;
         
         }
+        body::before {
+            content: '';
+            position: fixed;
+            left: 50%;
+            top: 0;
+            width: 1250px; /* Fixed width */
+            height: 100%; /* Full height */
+            background-color: rgba(0, 0, 0, 0.5);
+            transform: translateX(-50%); /* Center the element */
+            z-index: -1;
+        }
+        .popup-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 10;
+        justify-content: center;
+        align-items: center;
+        cursor : pointer;
+        }
+
+        .popup-image {
+        max-width: 80%;
+        max-height: 80%;
+        margin: auto;
+        cursor: pointer;
+        }
+        .image-popup{
+            cursor:pointer;
+        }
+
+
         /* Add more styles as needed */
     </style>
 </head>
+
+
 <body>
+    <script>
+        function openPopup(imgSrc) {
+          var overlay = document.createElement('div');
+          overlay.className = 'popup-overlay';
+          overlay.onclick = function() { document.body.removeChild(this); }
+      
+          var img = document.createElement('img');
+          img.src = imgSrc;
+          img.className = 'popup-image';
+      
+          overlay.appendChild(img);
+          document.body.appendChild(overlay);
+      
+          overlay.style.display = 'flex'; // Show the overlay
+        }
+      </script>
     <div class="content-box">
-        <h1>Gradient fog</h1>
-        <p>Details about the Fullscreen Multicolor Fog Shader...</p>
+        <!-- <img src="enviroThumbnail.png" alt="Custom Shaders" style="width:100%; height:auto;"> -->
+
+        <div class="image-popup" onclick="openPopup('enviroThumbnail.png')">
+            <img src="enviroThumbnail.png" alt="Custom Shaders" style="width:100%; height:auto;">
+        </div>
+
+        <h1>Environment Shaders</h1>
+            <p>
+            Experimenting with environmental effects, I made a custom skybox shader with adjustable components for dynamic skies.
+            Additionally, I made a gradient fog shader that adds depth and atmosphere, utilizing the camera's depth texture for a fullscreen shader. 
+            </p>
+         <h1>Gradient Fog</h1>
+         <p>
+             To make the fog shader work, I used custom renderer feature with a full screen shader render pass.
+             Unity already has a built-in full screen pass renderer but in my version 2022.3.12f1, the built in full screen pass does not have 
+             the "Before Skybox" injection point , which sets the order of the shader in the render queue. And I didn't want this fog shader to effect the skybox so I used a custom
+             full screen pass. You can find it <a href="https://gist.github.com/omergurzoglu/d2328507e91cfe1b174deb996cb3d3c2" target="_blank" style="color: #1179b1">here</a>
+            <br>
+            <br>
+            <br>
+        
+            After setting the render pass, we need to set the pass material with a full screen shader graph in which we will use the depth texture to position the gradient. We split the alpha value of the gradient to set its intensity as desired,
+            and we lerp the blit source and the gradient which is the final albedo.
+            <br>
+            <br>
+            <div class="image-popup" onclick="openPopup('fogShader.png')">
+                <img src="fogShader.png" alt="Custom Shaders" style="width:100%; height:auto;">
+            </div>
+
+            <br> 
+            Here are some combinations:
+            <br>
+            <br>
+            
+            <div class="image-popup" onclick="openPopup('fog1.gif')">
+                <img src="fog1.gif" alt="Custom Shaders" style="width:100%; height:auto;">
+            </div>
+            <br>
+            <br>
+            <div class="image-popup" onclick="openPopup('fog2.gif')">
+                <img src="fog2.gif" alt="Custom Shaders" style="width:100%; height:auto;">
+            </div>
+            <h1>Skybox</h1>    
+            <p>
+                For skybox I made 5 components. Main gradient , sun, sun halo, horizon halo and stars. All have their relative values to play around with.
+                <br>
+                <br>
+
+                The main gradient is easy as it's used alot. 3 colors with their blend multipliers.
+                <br>
+                <div class="image-popup" onclick="openPopup('mainGradient.png')">
+                    <img src="mainGradient.png" alt="Custom Shaders" style="width:100%; height:auto;">
+                </div>
+                <br>
+                <br>
+
+                The sun and sun halo use the main light direction node to match the directional lights angle.
+                Sun can be changed to the moon with setting the correct values.
+                <br>
+                <br>
+                
+                <div class="image-popup" onclick="openPopup('sunHalo.png')">
+                    <img src="sunHalo.png" alt="Custom Shaders" style="width:100%; height:auto;">
+                </div>
+                <br>
+                <br>
+
+                The horizon halo can help add the additional horizon feeling that the main gradient sometimes lack.
+                <br>
+                <br>
+                <div class="image-popup" onclick="openPopup('horizonHalo.png')">
+                    <img src="horizonHalo.png" alt="Custom Shaders" style="width:100%; height:auto;">
+                </div>
+                <br>
+                <br>
+                The stars use powered voronoi noise get random white dots, with an additional noise to give more detail. Also towards the top of the skybox the UV's get stretched and that makes the stars look stretched.
+                 To fix that we do some tiling in the top side of the skybox. 
+                 <br>
+                 <br>
+                 <div class="image-popup" onclick="openPopup('stars.png')">
+                    <img src="stars.png" alt="Custom Shaders" style="width:100%; height:auto;">
+                </div>
+                <br>
+                <br>
+                Here are some combinations:
+                <br>
+                <br>
+                <div class="image-popup" onclick="openPopup('skybox.gif')">
+                    <img src="skybox.gif" alt="Custom Shaders" style="width:100%; height:auto;">
+                </div>
+                <br>
+                <br>
+                The values I used for the sunset preset:
+                <br>
+                <br>
+                <div class="image-popup" onclick="openPopup('skyboxValues.png')" style="text-align: center;">
+                    <img src="skyboxValues.png" alt="Custom Shaders" style="width:50%; height:auto; margin: auto;">
+                </div>
+                <br>
+                <br>
+                Combined together you can get a lot of different visuals. This could be turned into a dynamic day/night cycle system with setting/lerping the values in whichever way you want.
+
+                <br>
+                <br>
+
+                Sources I used;
+                <br>
+                <br>
+
+                <a href="https://grrava.blogspot.com/2018/08/stylistic-fog-from-firewatch-with.html" target="_blank" style="color: #1179b1">https://grrava.blogspot.com/2018/08/stylistic-fog-from-firewatch-with.html</a>
+                <a href="https://blog.camposanto.com/post/112703721804/this-blog-post-is-an-in-detail-explanation-of-a" target="_blank" style="color: #1179b1">https://blog.camposanto.com/post/112703721804/this-blog-post-is-an-in-detail-explanation-of-a</a>
+
+                <br>
+
+
+
+
+
+
+
+
+
+
+            </p>
+
+
+
+
+            
+
+         </p>
+
+        
         <!-- Add more content here -->
 
         <!-- Link to go back to the main page -->
-        <a href="index.html" style="color: #ffffff;">Back to Logs</a>
+        
+        <a href="index.html" style="color: #1179b1;">Back to Logs</a>
     </div>
 </body>
+
+
 </html>
