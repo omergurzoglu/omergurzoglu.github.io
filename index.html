@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0">
 <title>Ömer Gürzoğlu</title>
 <link rel="icon" href="your-photo.jpg" type="image/png">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"> <!-- Roboto Font -->
@@ -82,7 +82,7 @@
   text-align: center; /* Centering the text */
   font-size: 1.2em; /* Slightly larger font size */
   }
-  @media (max-width: 768px) 
+  @media (max-width: 768px)
   {
     .header {
       flex-direction: column;
@@ -97,16 +97,36 @@
       grid-template-columns: 1fr;
     }
   }
+  /* Desktop Styles */
+@media (min-width: 769px) {
+  .log-entry {
+    justify-content: space-between; /* Spreads the content evenly */
+    max-width: 600px; /* Maximum width of log entry */
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .log-thumbnail {
+    width: 30%; /* Larger percentage for mobile */
+  }
+
+  .log-text {
+    font-size: 1em; /* Smaller font size for mobile */
+    padding: 10px; /* Less padding on mobile */
+  }
+}
+  
   .tab {
   overflow: hidden;
   border: 5px solid #484848;
   background-color: #707070;
   margin-top: 20px;
   border-radius: 15px;
-}
+  }
 
 /* Style the buttons inside the tab */
-.tab button {
+  .tab button {
   background-color: #323232;
   float: left;
   border: none;
@@ -116,17 +136,16 @@
   transition: 0.3s;
   font-size: 17px;
   border-radius: 10px;
- 
+
   font-family: 'Roboto';
   color: #ffffff; /* Change the text color as needed */
   font-size: 18px; /* Change the font size as needed */
-  
+
   font-weight: bold; /* Optional: if you want bold text */
 }
 .tab button:last-child {
   margin-right: 0;
 }
-
 
 /* Change background color of buttons on hover */
 .tab button:hover {
@@ -138,96 +157,52 @@
   background-color: #a0a0a0;
 }
 
-
 /* Style the tab content */
 .tabcontent {
-  display: none;
+  
   padding: 6px 12px;
-  /*border: 5px solid #ccc;*/
-  /*border-top: none;*/
-  min-height: 400px;
-}
-.collapsible {
-  background-color: #707070;
-  color: rgb(57, 57, 57);
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  border-radius: 5px;
-  margin-top: 5px;
-  font-family: 'Roboto';
-  font-size:18px;
-}
-
-.active, .collapsible:hover {
-  background-color: #555;
-}
-
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow: hidden;
-  background-color: #f1f1f1;
-  color: black;
-  border-radius: 5px;
 }
 .log-entry {
-  
+
   display: flex;
   align-items: center;
-  background-color: #2c2f33; /* Background color */
+  background-color: #4a4a4a; /* Background color */
   margin-bottom: 10px;
   border-radius: 8px;
-  overflow: hidden;
-
+  max-width: 100%;
 }
-
 .log-text {
+  flex:1;
   font-size: x-large;
-  flex-grow: 1;
-  padding: 50px;
-  color: white; /* Text color */
+  padding: 20px;
+  color: rgb(246, 246, 246); /* Text color */
+  font-size: 1.2em;
 }
 
-.log-text a {
-  text-decoration: none;
-  color: white; /* Link color */
-  font-weight: bold;
-}
 
 .log-thumbnail {
-  width: 350px; /* Adjust as needed */
   flex-shrink: 0;
+   /* Adjust as needed */
+   width: 200px ;
   height: auto;
-  max-width: 100%;
+  
 }
 
 .log-thumbnail img {
   width: 100%;
   height: auto;
   display: block;
+  display:flex;
+
 }
 .log-entry-link {
   text-decoration: none; /* Removes underline from links */
   color: inherit; /* The link will inherit the text color from its parent */
 }
 
-.log-entry-link:hover {
-  /* Here you can add hover effects, such as changing the background color slightly */
-   /* background-color: #333;  */
-   /* Example hover color */
-}
-
-  
-
 </style>
 </head>
 <body>
-
   <script>
     function openTab(evt, tabName) {
       var i, tabcontent, tablinks;
@@ -248,25 +223,6 @@
       document.querySelector(".tablinks").click();
     });
   </script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var coll = document.getElementsByClassName("collapsible");
-      for (var i = 0; i < coll.length; i++) {
-        coll[i].addEventListener("click", function() {
-          this.classList.toggle("active");
-          var content = this.nextElementSibling;
-          if (content.style.display === "block") {
-            content.style.display = "none";
-          } else {
-            content.style.display = "block";
-          }
-        });
-      }
-    });
-  </script>
-
-
 <div class="container">
   <div class="header">
     <img src="your-photo.jpg" alt="Your Name" class="profile-image">
@@ -288,17 +244,16 @@
     <button class="tablinks" onclick="openTab(event, 'Logs')">Logs</button>
   </div>
   &nbsp;
-  
-  
+
   <!-- Tab content -->
 
   <div id="Works" class="tabcontent">
     <p class="info-tab">
-      Some of my works. All public repositories in GitHub. 
+      Some of my works. All public repositories in GitHub.
     </p>
     <div class="video-container">
       <!-- Videos -->
-      
+
       <iframe width="1120" height="630" src="https://www.youtube.com/embed/cD-hR6GKTsM" frameborder="0" allowfullscreen></iframe>
       <iframe width="1120" height="630" src="https://www.youtube.com/embed/zYppvXnCLHA" frameborder="0" allowfullscreen></iframe>
       <iframe width="1120" height="630" src="https://www.youtube.com/embed/bdPlykuVgOk" frameborder="0" allowfullscreen></iframe>
@@ -311,12 +266,11 @@
       <iframe width="1120" height="630" src="https://www.youtube.com/embed/-ge8xaWduKg" frameborder="0" allowfullscreen></iframe>
       <iframe width="1120" height="630" src="https://www.youtube.com/embed/fToVGXkp_l4" frameborder="0" allowfullscreen></iframe>
       <iframe width="1120" height="630" src="https://www.youtube.com/embed/UeHwtWJpzWw" frameborder="0" allowfullscreen></iframe>
-      <!-- ... (other iframe elements) ... -->
     </div>
   </div>
 
-  <div id="Logs" class = "tabcontent">
 
+  <div id="Logs" class = "tabcontent">
     <a href="fullscreen-shader.html" target="_blank" class="log-entry-link">
       <div class="log-entry">
         <div class="log-text">
@@ -330,9 +284,9 @@
 
   </div>
 
-   
 
-  
+
+
 
 </div>
 
